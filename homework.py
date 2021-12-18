@@ -83,6 +83,14 @@ class SportsWalking(Training):
         self.weight = weight
         self.growth = growth
 
+    def get_mesage(self):
+        
+        print(f'Тип тренировки: {self.training_type}')
+        print(f'Длительность: {self.duration} ч')
+        print(f'Дистанция: {self.distance} км')
+        print(f'Средняя скорость: {self.speed} км/ч')
+        print(f'Потрачено каллорий: {self.calories}')
+
     def get_spent_calories(self) -> float:
         Coeff_caloriea_1: int = 0.035
         Coeff_caloriea_2: int = 0.029
