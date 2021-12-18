@@ -84,7 +84,7 @@ class SportsWalking(Training):
         self.growth = growth
 
     def get_mesage(self):
-        
+
         print(f'Тип тренировки: {self.training_type}')
         print(f'Длительность: {self.duration} ч')
         print(f'Дистанция: {self.distance} км')
