@@ -7,6 +7,7 @@ from typing import Dict, Type
 
 class InfoMessage:
     """Информационное сообщение о тренировке."""
+    
     training_type: str
     duration: float
     distance: float
