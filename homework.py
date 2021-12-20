@@ -2,6 +2,7 @@ from dataclasses import dataclass, asdict
 from typing import Dict, Type
 @dataclass
 
+
 class InfoMessage:
     """Информационное сообщение о тренировке."""
     training_type: str
@@ -9,6 +10,7 @@ class InfoMessage:
     distance: float
     speed: float
     calories: float
+
     def get_message(self) -> str:
         template = ('Тип тренировки: {training_type}; '
                     'Длительность: {duration:.3f} ч.; '
@@ -16,6 +18,7 @@ class InfoMessage:
                     'Ср. скорость: {speed:.3f} км/ч; '
                     'Потрачено ккал: {calories:.3f}.')
         return template.format(**asdict(self))
+
 
 class Training:
     """Базовый класс тренировки."""
@@ -49,6 +52,7 @@ class Training:
                            self.get_distance(), self.get_mean_speed(),
                            self.get_spent_calories())
 
+
 class Running(Training):
     """Тренировка: бег."""
     CALORIES_MEAN_SPEED_MULTIPLIER: int = 18
@@ -61,7 +65,8 @@ class Running(Training):
         return(((self.CALORIES_MEAN_SPEED_MULTIPLIER * self.get_mean_speed()
                  - self.CALORIES_MEAN_SPEED_DIFFERENCE) * self.weight_kg)
                / self.M_IN_KM * self.duration_h * self.ONE_HOUR)
-               
+
+
 class SportsWalking(Training):
     """Тренировка: спортивная ходьба."""
     CALORIES_WEIGHT_MULTIPLIER_1: float = 0.035
@@ -77,6 +82,7 @@ class SportsWalking(Training):
                 + (self.get_mean_speed() ** 2 // self.height_m)
                 * self.CALORIES_WEIGHT_MULTIPLIER_2 * self.weight_kg)
                * (self.duration_h * self.ONE_HOUR))
+
 
 class Swimming(Training):
     """Тренировка: плавание."""
