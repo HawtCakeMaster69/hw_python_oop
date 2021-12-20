@@ -107,22 +107,20 @@ class Swimming(Training):
     CALORIES_WEIGHT_MULTIPLIER: int = 2
 
     def __init__(self, action: int, duration: float, weight: float,
-                length_pool: float, count_pool: float) -> None:
+                 length_pool: float, count_pool: float) -> None:
         super().__init__(action, duration, weight)
         self.length_pool_m = length_pool
         self.count_pool = count_pool
 
-
     def get_mean_speed(self) -> float:
 
-        return((self.length_pool_m  * self.count_pool
-                / self.M_IN_KM / self.duration_h))
+        return(self.length_pool_m  * self.count_pool
+                / self.M_IN_KM / self.duration_h)
 
     def get_spent_calories(self) -> float:
 
         return((self.get_mean_speed() + self.CALORIES_MEAN_SPEED_SUMMAND)
                 * self.CALORIES_WEIGHT_MULTIPLIER * self.weight_kg)
-
 
 def read_package(workout_type: str, data: list) -> Training:
     """Прочитать данные полученные от датчиков."""
