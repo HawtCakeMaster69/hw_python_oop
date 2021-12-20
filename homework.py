@@ -73,7 +73,7 @@ class Running(Training):
 
         return(((self.CALORIES_MEAN_SPEED_MULTIPLIER * self.get_mean_speed()
                  - self.CALORIES_MEAN_SPEED_DIFFERENCE) * self.weight_kg)
-                 / self.M_IN_KM * self.duration_h * self.ONE_HOUR)
+               / self.M_IN_KM * self.duration_h * self.ONE_HOUR)
 
 
 class SportsWalking(Training):
