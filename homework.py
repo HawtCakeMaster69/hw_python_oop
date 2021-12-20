@@ -26,7 +26,7 @@ class Training:
     M_IN_KM: int = 1000
     LEN_STEP: float = 0.65
     ONE_HOUR: int = 60
-    
+
     def __init__(self,
                  action: int,
                  duration: float,
@@ -72,9 +72,9 @@ class SportsWalking(Training):
     """Тренировка: спортивная ходьба."""
     CALORIES_WEIGHT_MULTIPLIER_1: float = 0.035
     CALORIES_WEIGHT_MULTIPLIER_2: float = 0.029
-    
+
     def __init__(self, action: int, duration: float,
-                weight: float, height: float) -> None:
+                 weight: float, height: float) -> None:
         super().__init__(action, duration, weight)
         self.height_m = height
 
