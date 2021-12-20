@@ -3,8 +3,6 @@ from typing import Dict, Type
 
 
 @dataclass
-
-
 class InfoMessage:
     """Информационное сообщение о тренировке."""
 
@@ -76,7 +74,7 @@ class SportsWalking(Training):
     CALORIES_WEIGHT_MULTIPLIER_2: float = 0.029
     
     def __init__(self, action: int, duration: float,
-                 weight: float, height: float) -> None:
+                weight: float, height: float) -> None:
         super().__init__(action, duration, weight)
         self.height_m = height
 
@@ -124,9 +122,8 @@ def main(training: Training) -> None:
     info = training.show_training_info()
     print(info.get_message())
 
-    
-if __name__ == '__main__':
 
+if __name__ == '__main__':
     packages = [
         ('SWM', [720, 1, 80, 25, 40]),
         ('RUN', [15000, 1, 75]),
