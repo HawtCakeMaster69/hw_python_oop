@@ -7,7 +7,7 @@ from typing import Dict, Type
 
 class InfoMessage:
     """Информационное сообщение о тренировке."""
-    
+
     training_type: str
     duration: float
     distance: float
@@ -107,6 +107,7 @@ class Swimming(Training):
         return((self.get_mean_speed() + self.CALORIES_MEAN_SPEED_SUMMAND)
                * self.CALORIES_WEIGHT_MULTIPLIER * self.weight_kg)
 
+
 def read_package(workout_type: str, data: list) -> Training:
     """Прочитать данные полученные от датчиков."""
     workouts: Dict[str, Type[Training]] = {
@@ -116,8 +117,11 @@ def read_package(workout_type: str, data: list) -> Training:
     training = workouts[workout_type](*data)
     return training
 
+
 def main(training: Training) -> None:
     """Главная функция."""
+
+    
     info = training.show_training_info()
     print(info.get_message())
 if __name__ == '__main__':
