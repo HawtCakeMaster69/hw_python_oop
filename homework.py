@@ -53,7 +53,7 @@ class Training:
 
     def show_training_info(self) -> InfoMessage:
         """Вернуть информационное сообщение о выполненной тренировке."""
-        
+
         return InfoMessage(type(self).__name__, self.duration_h,
                            self.get_distance(), self.get_mean_speed(),
                            self.get_spent_calories())
@@ -123,17 +123,17 @@ class Swimming(Training):
                / self.M_IN_KM / self.duration_h)
 
     def get_spent_calories(self) -> float:
-        
+
         return((self.get_mean_speed() + self.CALORIES_MEAN_SPEED_SUMMAND)
                * self.CALORIES_WEIGHT_MULTIPLIER * self.weight_kg)
 
 
 def read_package(workout_type: str, data: list) -> Training:
     """Прочитать данные полученные от датчиков."""
-    
+
     workouts: Dict[str, Type[Training]] = {
         'SWM': Swimming, 'RUN': Running, 'WLK': SportsWalking}
-        
+
     if workout_type not in workouts:
         raise ValueError('Неизвестная тренировка')
     training = workouts[workout_type](*data)
